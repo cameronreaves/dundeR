@@ -29,10 +29,15 @@ what_episode <- function() {
 quote_about <- function(word = "nuts") {
 
     indices <- grepl(word, office$line_text)
+    if(sum(indices) > 0) {
     subset <- office[indices, ]
     index <- sample(1:nrow(subset), 1)
     line <- subset[index,]
     return(paste0("In season ", line$season, ", episode ", line$episode, ", scene ", line$scene, " , ", line$speaker, " said '",
         line$line_text, "'"))
+    }
+    else{
+        print("word not found")
+    }
 
 }
