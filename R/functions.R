@@ -21,7 +21,7 @@ person_said <- function(speaker = "Jim") {
 what_episode <- function() {
 
     index <- sample(1:nrow(unique_episodes), 1)
-    episode <- unique_episodes[ind, ]
+    episode <- unique_episodes[index, ]
     return(paste0("You should watch episode ", episode$episode, " from season ", episode$season, " next!"))
 
 }
