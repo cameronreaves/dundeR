@@ -1,0 +1,13 @@
+Package: dundeR
+Title: Let's you watch the Office without watching the Office (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Cameron",
+           family = "Reaves",
+           role = c("aut", "cre"),
+           email = "cameronreaves@college.harvard.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package gives you the office dataset and some functions that let you use the dataset.
+License: none
+Encoding: UTF-8
+LazyData: true
