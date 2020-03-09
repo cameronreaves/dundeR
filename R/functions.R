@@ -1,7 +1,9 @@
 load("data/office.rda")
 load("data/top_speakers.rda")
 load("data/unique_episodes.rda")
+load("data/lines_with_speakers.rda")
 
+# Function returns a random line from the character parameter in a show
 
 person_said <- function(speaker = "Jim") {
 
@@ -18,6 +20,8 @@ person_said <- function(speaker = "Jim") {
 }
 
 
+# Function return a randomly generated episode
+
 what_episode <- function() {
 
     index <- sample(1:nrow(unique_episodes), 1)
@@ -25,6 +29,9 @@ what_episode <- function() {
     return(paste0("You should watch episode ", episode$episode, " from season ", episode$season, " next!"))
 
 }
+
+
+# Function returns a random line that includes the string parameter
 
 quote_about <- function(word = "nuts") {
 
@@ -41,3 +48,18 @@ quote_about <- function(word = "nuts") {
     }
 
 }
+
+# Function creates and opens an html that has the entire script for that episode
+
+print_episode <- function(season = 1, episode = 1){
+
+    lines <- whole[which(office$season == season & office$episode == episode)]
+    cat(lines, sep="  \n", file = "episode.Rmd")
+    rmarkdown::render("episode.Rmd")
+    system2("open","episode.html")
+    file.remove("episode.Rmd")
+
+}
+
+
+
