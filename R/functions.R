@@ -53,7 +53,7 @@ quote_about <- function(word = "nuts") {
 
 print_episode <- function(season = 1, episode = 1){
 
-    lines <- whole[which(office$season == season & office$episode == episode)]
+    lines <- lines_with_speakers[which(office$season == season & office$episode == episode)]
     cat(lines, sep="  \n", file = "episode.Rmd")
     rmarkdown::render("episode.Rmd")
     system2("open","episode.html")
