@@ -1,9 +1,12 @@
-load("data/office.rda")
-load("data/top_speakers.rda")
-load("data/unique_episodes.rda")
-load("data/lines_with_speakers.rda")
 
-# Function returns a random line from the character parameter in a show
+#' Returns a random quote / line from a character in the show
+#'
+#' @param speaker A chr
+#' @return If input is a character from the office, then the output is a chr vector
+#' if input not found returns a printed mesage
+#' @examples
+#' preson_said(Pam)
+#' @export
 
 person_said <- function(speaker = "Jim") {
 
@@ -20,7 +23,13 @@ person_said <- function(speaker = "Jim") {
 }
 
 
-# Function return a randomly generated episode
+#' Returns a random season and episode
+#'
+#' @param null
+#' @return the output is a chr vector
+#' @examples
+#' what_episode()
+#' @export
 
 what_episode <- function() {
 
@@ -31,7 +40,15 @@ what_episode <- function() {
 }
 
 
-# Function returns a random line that includes the string parameter
+
+#' Returns a random quote / line that that has the word parameter in it
+#'
+#' @param word A chr
+#' @return If input is a word found in at least one quote / line from the office, then the output is a chr vector
+#' if input not found returns a printed message
+#' @examples
+#' quote_about(That's what she said)
+#' @export
 
 quote_about <- function(word = "nuts") {
 
@@ -49,7 +66,14 @@ quote_about <- function(word = "nuts") {
 
 }
 
-# Function creates and opens an html that has the entire script for that episode
+#' Returns an html page (Rmarkdown) saved to the user's working directory
+#' @param season An int
+#' @param episode An int
+#' @return If input is valid episode from the show, then the output html
+#' if input not returns null, markdown fails
+#' @examples
+#' print_episode(4, 2)
+#' @export
 
 print_episode <- function(season = 1, episode = 1) {
 
@@ -60,5 +84,3 @@ print_episode <- function(season = 1, episode = 1) {
     file.remove("episode.Rmd")
 
 }
-
-
